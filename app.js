@@ -18,3 +18,12 @@ app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
 
+const cors = require('cors');
+
+const corsOptions = {
+  origin: ['http://localhost:8080', 'https://cervandoyr.github.io'], // Permitir tu frontend local y en producción
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+};
+
+app.use(cors(corsOptions));
