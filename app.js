@@ -1,29 +1,19 @@
 const express = require("express");
+const cors = require("cors");
+const contactRoutes = require("./routes/contactRoutes");
+require("dotenv").config(); // Cargar variables de entorno
+
 const app = express();
-require("dotenv").config();
+const PORT = process.env.PORT || 3001;
 
-const PORT = process.env.PORT || 8081;
-
-// Verificar si las variables de entorno están cargadas
-console.log("EMAIL_USER:", process.env.EMAIL_USER);
-console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Cargada correctamente" : "No cargada");
-
+// Middleware
+app.use(cors());
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("Servidor funcionando en Railway 🚀");
-});
+// Routes
+app.use("/api", contactRoutes);
 
+// Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`Servidor corriendo en el puerto ${PORT}`);
+  console.log(`✅ Servidor corriendo en el puerto ${PORT}`);
 });
-
-const cors = require('cors');
-
-const corsOptions = {
-  origin: ['http://localhost:8080', 'https://cervandoyr.github.io'], // Permitir tu frontend local y en producción
-  methods: 'GET,POST,PUT,DELETE',
-  allowedHeaders: 'Content-Type,Authorization'
-};
-
-app.use(cors(corsOptions));

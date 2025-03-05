@@ -12,7 +12,7 @@ exports.createContact = async (req, res) => {
 
     // Responder inmediatamente para no hacer esperar al usuario
     res.status(200).json({ message: "Enviando" });
-
+    
     // Enviar el correo en segundo plano
     const transporter = nodemailer.createTransport({
       service: "gmail",
