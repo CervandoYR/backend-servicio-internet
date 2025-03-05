@@ -4,9 +4,9 @@ console.log("EMAIL_USER:", process.env.EMAIL_USER);
 console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Cargada correctamente" : "No cargada");
 exports.createContact = async (req, res) => {
   try {
-    const { name, email, message } = req.body;
+    const { name, lastname, email, message, phone } = req.body;
 
-    if (!name || !email || !message) {
+    if (!name || !lastname || !email || !message || !phone) {
       return res.status(400).json({ error: "Todos los campos son obligatorios" });
     }
 
@@ -28,7 +28,9 @@ exports.createContact = async (req, res) => {
       subject: "Nuevo mensaje de contacto",
       html: `<h2>Nuevo mensaje de contacto</h2>
              <p><strong>Nombre:</strong> ${name}</p>
+             <p><strong>Apellido:</strong> ${lastname}</p>
              <p><strong>Correo:</strong> ${email}</p>
+             <p><strong>Telefono:</strong> ${phone}</p>
              <p><strong>Mensaje:</strong> ${message}</p>`,
     };
 
