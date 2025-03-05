@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 // Verificar si las variables de entorno están cargadas
 console.log("EMAIL_USER:", process.env.EMAIL_USER);
@@ -17,3 +17,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });
+
