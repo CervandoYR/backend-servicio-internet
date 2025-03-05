@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-const PORT = process.env.PORT || 3000; // Railway asignará un puerto automáticamente
+const PORT = process.env.PORT || 8080; // Railway asignará un puerto automáticamente
 
 app.use(express.json());
 
