@@ -24,7 +24,7 @@ exports.createContact = async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: "yrcervando01@gmail.com",
+      to: "servitektechnologies@gmail.com",
       subject: "Nuevo mensaje de contacto",
       html: `<h2>Nuevo mensaje de contacto</h2>
              <p><strong>Nombre:</strong> ${name}</p>
